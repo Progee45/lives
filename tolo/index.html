@@ -1,60 +1,75 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <script type="text/javascript" src="https://darya.stream/livetvs/clappr.min.js"></script>
+<html lang="de">
 
 <style>
-body{
- margin:0;
-}
+	body {
+		margin: 0;
+	}
 
-#player{
-margin:0;
-  position: relative;
-} 
+	#video2 {
+		margin: 0;
+		margin-top: -15px;
+		margin-bottom: 0;
+	}
 
-#audio{
-  text-align: center;
-  position: absolute;
-  bottom:18px;
-  height: 13%;
-  width:100%;
-  background-color:yellow;
-}
+	.audio {
+		margin: 0;
+		padding: 0;
+		margin-top: -5px;
+		padding-bottom: 10px;
+		background: red;
+	}
 </style>
 
-<body>
-	
-  
-    <div id="player">
-	   
-    </div>
-	<div id="audio" >
-		<b><p style="margin:0"> Audio (صدا):</p> </b>
-       </div>
-	
+<head>
+	<title>TV 2020</title>
+</head>
 
-  
-  
-  
-  <script>
-    var player = new Clappr.Player({source: "https://fflivetolotv.b-cdn.net/media_1.m3u8",
-	
-    poster: 'https://darya.stream/wp-content/uploads/2020/04/poster-livetvs.jpg',
-    width: "100%", 
-    height: "100%", 
-    autoPlay: true,
-    watermark: "http://darya.stream/wp-content/uploads/2020/04/daryastream-logo.png", position: 'top-left',
-    parentId: "#player"});
-  </script>
-  
-   <script>
-    var player = new Clappr.Player({source: "https://fflivetolotv.b-cdn.net/media_3.m3u8",
-    autoPlay: true,
-	width: "100%", 
-    height: "100%", 
-    parentId: "#audio"});
-  </script>
+<body>
+	<script src="https://hls-js-7b2d34bd-841e-4b02-a50a-7a24e015acb7.netlify.com/dist/hls.js"></script>
+	<center>
+		<video width="100%" autoplay playsinline controls id="video" controls></video>
+	</center>
+	<center>
+		<div class="audio">Audio</div>
+		<video width="100%" height="50" autoplay playsinline controls id="video2"></video>
+	</center>
+	<script>
+		if (Hls.isSupported()) {
+			var video = document.getElementById('video');
+			var hls = new Hls();
+			quelle = 'https://fflivetolotv.b-cdn.net/media_1.m3u8';
+			hls.loadSource(quelle);
+			hls.attachMedia(video);
+			hls.on(Hls.Events.MANIFEST_PARSED, function() {
+				video.play();
+			});
+		} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+			video.src = 'https://fflivetolotv.b-cdn.net/media_1.m3u8';
+			video.addEventListener('canplay', function() {
+				video.play();
+			});
+		}
+	</script>
+
+	<script>
+		if (Hls.isSupported()) {
+			var video = document.getElementById('video2');
+			var hls = new Hls();
+			quelle = 'https://fflivetolotv.b-cdn.net/media_3.m3u8';
+			//quelle = 'http://linux-app.tv:6204/live/21164920/31520888/23808.m3u8';
+			hls.loadSource(quelle);
+			hls.attachMedia(video);
+			hls.on(Hls.Events.MANIFEST_PARSED, function() {
+				video.play();
+			});
+		} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+			video.src = 'https://fflivetolotv.b-cdn.net/media_3.m3u8';
+			video.addEventListener('canplay', function() {
+				video.play();
+			});
+		}
+	</script>
 </body>
 
 </html>
