@@ -2,26 +2,36 @@
 </script>
 
 <style>
-  body{
-    margin:0;
+  body {
+    margin: 0;
   }
+
   #my-video {
     height: 50px !important;
-    margin-bottom:-50px;
-    z-index:9999;
+    margin-bottom: -50px;
+    z-index: 9999;
   }
   
-  .jw-svg-icon-watermark{
-    display: none;
+  #my-video .jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-icon-fullscreen {
+  display: none;
 }
-  
-  .jw-breakpoint-4 .jw-display .jw-icon, .jw-breakpoint-4 .jw-display .jw-svg-icon, .jw-breakpoint-5 .jw-display .jw-icon, .jw-breakpoint-5 .jw-display .jw-svg-icon, .jw-breakpoint-6 .jw-display .jw-icon, .jw-breakpoint-6 .jw-display .jw-svg-icon, .jw-breakpoint-7 .jw-display .jw-icon, .jw-breakpoint-7 .jw-display .jw-svg-icon {
-  width: 60px;
-  height: 80px;
-  line-height: 88px;
-}
-  
 
+  .jw-svg-icon-watermark {
+    display: none;
+  }
+
+  .jw-breakpoint-4 .jw-display .jw-icon,
+  .jw-breakpoint-4 .jw-display .jw-svg-icon,
+  .jw-breakpoint-5 .jw-display .jw-icon,
+  .jw-breakpoint-5 .jw-display .jw-svg-icon,
+  .jw-breakpoint-6 .jw-display .jw-icon,
+  .jw-breakpoint-6 .jw-display .jw-svg-icon,
+  .jw-breakpoint-7 .jw-display .jw-icon,
+  .jw-breakpoint-7 .jw-display .jw-svg-icon {
+    width: 60px;
+    height: 80px;
+    line-height: 88px;
+  }
 </style>
 <div id="my-video"></div>
 <div id="my-video2"></div>
@@ -30,18 +40,16 @@
   function text() {
     jwplayer("my-video").setup({
       file: "https://fflivetolotv.b-cdn.net/media_3.m3u8",
-      image: "https://soundsnap.ir/blog/wp-content/uploads/2019/11/1-1024x576.jpg",
+      image: "https://progee45.github.io/lives/Unbenannt-1.jpg",
       height: "370",
       controlbar: "none",
       primary: "html5",
       events: {
-      onClick: function(event) {
+        onClick: function(event) {
           jwplayer().getPlugin("controlbar").hide();
         }
       },
     });
-    
-    
     jwplayer("my-video2").setup({
       file: "https://fflivetolotv.b-cdn.net/media_1.m3u8",
       image: "https://cdn.pixabay.com/photo/2013/07/18/10/59/pulse-trace-163708_960_720.jpg",
