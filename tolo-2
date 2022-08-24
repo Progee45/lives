@@ -1,0 +1,66 @@
+<script src="https://content.jwplatform.com/libraries/xZ88RwO4.js" </script>
+</script>
+
+<style>
+  body {
+    margin: 0;
+  }
+  .jw-flag-small-player .jw-logo-button {
+  width: 44px;
+  display: none;
+}
+
+  #my-video {
+    height: 50px !important;
+    margin-bottom: -50px;
+    z-index: 9999;
+  }
+  
+  #my-video .jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-icon-fullscreen {
+  display: none;
+}
+
+  .jw-svg-icon-watermark {
+    display: none;
+  }
+
+  .jw-breakpoint-4 .jw-display .jw-icon,
+  .jw-breakpoint-4 .jw-display .jw-svg-icon,
+  .jw-breakpoint-5 .jw-display .jw-icon,
+  .jw-breakpoint-5 .jw-display .jw-svg-icon,
+  .jw-breakpoint-6 .jw-display .jw-icon,
+  .jw-breakpoint-6 .jw-display .jw-svg-icon,
+  .jw-breakpoint-7 .jw-display .jw-icon,
+  .jw-breakpoint-7 .jw-display .jw-svg-icon {
+    width: 60px;
+    height: 80px;
+    line-height: 88px;
+  }
+</style>
+<div id="my-video"></div>
+<div id="my-video2"></div>
+
+<script type="text/javascript">
+  function text() {
+    jwplayer("my-video").setup({
+      file: "https://fflivetolotv.b-cdn.net/media_3.m3u8",
+      image: "https://progee45.github.io/lives/Unbenannt-1.jpg",
+      height: "370",
+      controlbar: "none",
+      primary: "html5",
+      events: {
+        onClick: function(event) {
+          jwplayer().getPlugin("controlbar").hide();
+        }
+      },
+    });
+    jwplayer("my-video2").setup({
+      file: "https://fflivetolotv.b-cdn.net/media_0.m3u8",
+      image: "https://cdn.pixabay.com/photo/2013/07/18/10/59/pulse-trace-163708_960_720.jpg",
+      width: "100%",
+      height: "370",
+      primary: "html5",
+    });
+  };
+  text();
+</script>
